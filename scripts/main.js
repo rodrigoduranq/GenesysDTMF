@@ -6,6 +6,23 @@ function sleep(ms) {
 
 
 
+function getAnalyticsConversationDetails(conversationId){
+  let apiInstance = new platformClient.ConversationsApi();
+
+
+apiInstance.getAnalyticsConversationDetails(conversationId)
+  .then((data) => {
+    console.log(`getAnalyticsConversationDetails success! data: ${JSON.stringify(data, null, 2)}`);
+  })
+  .catch((err) => {
+    console.log('There was a failure calling getAnalyticsConversationDetails');
+    console.error(err);
+  });
+}
+
+
+
+
 
 function DialNumber(number){
   let apiInstance = new platformClient.ConversationsApi();
@@ -17,6 +34,7 @@ function DialNumber(number){
   apiInstance.postConversationsCalls(body)
     .then((data) => {
       console.log(`postConversationsCalls success! data: ${JSON.stringify(data, null, 2)}`);
+      getAnalyticsConversationDetails (data.id);
     })
     .catch((err) => {
       console.log('There was a failure calling postConversationsCalls');

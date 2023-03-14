@@ -9,6 +9,36 @@ const conversationsApi = new platformClient.ConversationsApi();
 const notificationsApi = new platformClient.NotificationsApi();
 const usersApi = new platformClient.UsersApi();
 
+function handleNotification(message) {
+	// Parse notification string to a JSON object
+	const notification = JSON.parse(message.data);
+
+	// Discard unwanted notifications
+	if (notification.topicName.toLowerCase() === 'channel.metadata') {
+		// Heartbeat
+		console.info('Ignoring metadata: ', notification);
+		return;
+	} else if (notification.topicName.toLowerCase() !== conversationsTopic.toLowerCase()) {
+		// Unexpected topic
+		console.warn('Unknown notification: ', notification);
+		return;
+	} else {
+		console.debug('Conversation notification: ', notification);
+	}
+
+	// See function description for explanation
+	copyCallPropsToParticipant(notification.eventBody);
+
+	// Update conversation in list or remove it if disconnected
+	if (isConversationDisconnected(notification.eventBody))
+		delete conversationList[notification.eventBody.id];
+	else
+		conversationList[notification.eventBody.id] = notification.eventBody;
+
+	// Update UI
+	$('#call-table').html(CONVERSATION_LIST_TEMPLATE(Object.values(conversationList)));
+}
+
 
 function wait(ms) {
    var start = Date.now(),

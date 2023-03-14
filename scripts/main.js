@@ -16,6 +16,9 @@ function getAnalyticsConversationDetails(conversationId){
 apiInstance.getAnalyticsConversationDetails(conversationId)
   .then((data) => {
     console.log(`getAnalyticsConversationDetails success! data: ${JSON.stringify(data, null, 2)}`);
+
+    console.log ('participant id:' data.participants[0].participantId);
+
   })
   .catch((err) => {
     console.log('There was a failure calling getAnalyticsConversationDetails');

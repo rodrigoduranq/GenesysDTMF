@@ -1,5 +1,6 @@
 const platformClient = require('platformClient');
 
+const rod = "a"
 // ENVIO DIGITOS.
 function ProcessDTMF(){
 

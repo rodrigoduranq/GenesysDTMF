@@ -166,5 +166,4 @@ $(document).ready(function() {
 
 			});
 
-		.catch((err) => console.error(err));
 });

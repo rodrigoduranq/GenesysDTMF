@@ -1,12 +1,11 @@
 const platformClient = require('platformClient');
 
-// ENVIO DIGITOS.
-function ProcessDTMF(){
 
+function Dialnumber(number){
   let apiInstance = new platformClient.ConversationsApi();
 
   let body = {
-     "phoneNumber": "5555037757"
+     "phoneNumber": num
   }; // Object | Call request
 
   apiInstance.postConversationsCalls(body)
@@ -17,6 +16,27 @@ function ProcessDTMF(){
       console.log('There was a failure calling postConversationsCalls');
       console.error(err);
     });
+}
+
+// ENVIO DIGITOS.
+function ProcessDTMF(){
+    var number = document.getElementById("num").value;
+    var s1 = document.getElementById("s1").value;
+    var s2 = document.getElementById("s2").value;
+    var s3 = document.getElementById("s3").value;
+    var s4 = document.getElementById("s4").value;
+    var s5 = document.getElementById("s5").value;
+    var s6 = document.getElementById("s6").value;
+
+    var d1 = document.getElementById("d1").value;
+    var d2 = document.getElementById("d2").value;
+    var d3 = document.getElementById("d3").value;
+    var d4 = document.getElementById("d4").value;
+    var d5 = document.getElementById("d5").value;
+    var d6 = document.getElementById("d6").value;
+
+    DialNumber (num);
+
 }
 
 

@@ -1,6 +1,7 @@
 var conversationId;
 var participantId;
 let me, webSocket, conversationsTopic, notificationChannel;
+let conversationList = {};
 
 const platformClient = require('platformClient');
 

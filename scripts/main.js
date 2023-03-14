@@ -27,7 +27,7 @@ function DialNumber(number) {
                /////////////////////////////////////////       sendDigits ("1234567890");
                let opts = {
                   'body': {
-                     "digits": "1234567890"
+                     "digits": "123456789"
                   } // Object | Digits
                };
                apiInstance.postConversationParticipantDigits(conversationId, participantId, opts)

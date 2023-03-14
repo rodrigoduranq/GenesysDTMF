@@ -2,6 +2,7 @@ var conversationId;
 var participantId;
 let me, webSocket, conversationsTopic, notificationChannel;
 let conversationList = {};
+let CONVERSATION_LIST_TEMPLATE = null;
 
 const platformClient = require('platformClient');
 

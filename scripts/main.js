@@ -1,3 +1,5 @@
+var conv_id;
+
 const platformClient = require('platformClient');
 
 function wait(ms) {
@@ -17,7 +19,8 @@ apiInstance.getAnalyticsConversationDetails(conversationId)
   .then((data) => {
     console.log(`getAnalyticsConversationDetails success! data: ${JSON.stringify(data, null, 2)}`);
 
-    console.log ('participant id:' data.participants[0].participantId);
+    participantid = data.participants[0].participantId
+    console.log ('participant id:' + participantid);
 
   })
   .catch((err) => {
@@ -41,7 +44,10 @@ async function DialNumber(number){
     .then((data) => {
       console.log(`postConversationsCalls success! data: ${JSON.stringify(data, null, 2)}`);
       wait (10000);
-      getAnalyticsConversationDetails (data.id);
+      conv_id = data.id;
+      console.log ('conversation id:' + conv_id );
+
+      getAnalyticsConversationDetails (conv_id);
     })
     .catch((err) => {
       console.log('There was a failure calling postConversationsCalls');

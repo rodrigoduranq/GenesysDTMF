@@ -17,9 +17,7 @@ function sendDigits (digitos){
 
   let conversationId = "conv_id"; // String | conversation ID
   let participantId = "participantid"; // String | participant ID
-  let opts =   {
-       "digits": digitos
-  }
+
 
   let opts = {
     'body': {"digits": digitos} // Object | Digits

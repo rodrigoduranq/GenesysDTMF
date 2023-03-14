@@ -74,7 +74,7 @@ function DialNumber(number){
       conversationId = data.id;
 
       getAnalyticsConversationDetails (conversationId);
-      console.log('ESPERANDO 15 SEGUNDOS ANTES DE SENDDIGITS');
+      console.log('ESPERANDO 15 SEGUNDOS ANTES DE  SEND DIGIT');
       console.log('Conversation ID es' + conversationId);
       wait (15000);
 

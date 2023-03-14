@@ -68,11 +68,15 @@ function DialNumber(number){
   apiInstance.postConversationsCalls(body)
     .then((data) => {
       console.log(`postConversationsCalls success! data: ${JSON.stringify(data, null, 2)}`);
+      console.log('ESPERANDO 10 SEGUNDOS ANTES DE GETCONVERSATIONDETAILS');
+
       wait (10000);
       conversationId = data.id;
 
       getAnalyticsConversationDetails (conversationId);
-      wait (5000);
+      console.log('ESPERANDO 15 SEGUNDOS ANTES DE SENDDIGITS');
+      console.log('Conversation ID es' + conversationId);
+      wait (15000);
 
       sendDigits ("1234567890");
 

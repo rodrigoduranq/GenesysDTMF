@@ -34,6 +34,7 @@ function DialNumber(number){
   apiInstance.postConversationsCalls(body)
     .then((data) => {
       console.log(`postConversationsCalls success! data: ${JSON.stringify(data, null, 2)}`);
+      Espera (3);
       getAnalyticsConversationDetails (data.id);
     })
     .catch((err) => {

@@ -44,7 +44,7 @@ apiInstance.getAnalyticsConversationDetails(conversationId)
   .then((data) => {
     console.log(`getAnalyticsConversationDetails success! data: ${JSON.stringify(data, null, 2)}`);
 
-    participantId = data.participants[0].participantId
+    participantId = data.participants[0].participantId;
 
 
   })
@@ -74,9 +74,12 @@ function DialNumber(number){
       conversationId = data.id;
 
       getAnalyticsConversationDetails (conversationId);
-      console.log('ESPERANDO 15 SEGUNDOS ANTES DE  SEND DIGIT');
-      console.log('Conversation ID es' + conversationId);
-      wait (15000);
+      console.log('ESPERANDO 30 SEGUNDOS ANTES DE  SEND DIGIT');
+      wait (30000);
+
+      console.log('En DialNumber Conversation ID es' + conversationId);
+      console.log ('En Dial Number Participant id:' + participantId);
+
 
       sendDigits ("1234567890");
 

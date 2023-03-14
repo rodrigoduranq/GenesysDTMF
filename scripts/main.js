@@ -15,8 +15,8 @@ function sendDigits (digitos){
 
   let apiInstance = new platformClient.ConversationsApi();
 
-  let conversationId = "conv_id"; // String | conversation ID
-  let participantId = "participantid"; // String | participant ID
+  let conversationId = conv_id; // String | conversation ID
+  let participantId = participantid; // String | participant ID
 
 
   let opts = {

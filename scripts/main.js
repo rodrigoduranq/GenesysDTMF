@@ -60,7 +60,7 @@ apiInstance.getAnalyticsConversationDetails(conversationId)
 
 
 
-async function DialNumber(number){
+function DialNumber(number){
   let apiInstance = new platformClient.ConversationsApi();
 
   let body = {

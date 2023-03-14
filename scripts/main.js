@@ -9,6 +9,30 @@ const conversationsApi = new platformClient.ConversationsApi();
 const notificationsApi = new platformClient.NotificationsApi();
 const usersApi = new platformClient.UsersApi();
 
+function copyCallPropsToParticipant(conversation) {
+	conversation.participants.forEach((participant) => {
+		if (!participant.calls || participant.calls.length === 0) return;
+
+		participant.ani = participant.calls[0].self.addressNormalized;
+		participant.attributes = participant.additionalProperties;
+		participant.confined = participant.calls[0].confined;
+		participant.direction = participant.calls[0].direction;
+		participant.dnis = participant.calls[0].other.addressNormalized;
+		participant.held = participant.calls[0].held;
+		participant.muted = participant.calls[0].muted;
+		participant.provider = participant.calls[0].provider;
+		participant.recording = participant.calls[0].recording;
+		participant.recordingState = participant.calls[0].recordingState;
+		participant.state = participant.calls[0].state;
+		if (participant.userId)
+			participant.user = { id: participant.userId, selfUri: `/api/v2/users/${participant.userId}` };
+		if (participant.calls[0].peerId)
+			participant.peer = participant.calls[0].peerId;
+	});
+}
+
+
+
 function handleNotification(message) {
 	// Parse notification string to a JSON object
 	const notification = JSON.parse(message.data);

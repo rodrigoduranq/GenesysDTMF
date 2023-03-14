@@ -7,7 +7,7 @@ function sleep(ms) {
 
 
 
-function Dialnumber(number){
+function DialNumber(number){
   let apiInstance = new platformClient.ConversationsApi();
 
   let body = {

@@ -1,6 +1,14 @@
 var conversationId;
 var participantId;
+let me, webSocket, conversationsTopic, notificationChannel;
+
 const platformClient = require('platformClient');
+
+const client = platformClient.ApiClient.instance;
+const conversationsApi = new platformClient.ConversationsApi();
+const notificationsApi = new platformClient.NotificationsApi();
+const usersApi = new platformClient.UsersApi();
+
 
 function wait(ms) {
    var start = Date.now(),
@@ -68,20 +76,55 @@ function ProcessDTMF() {
 }
 /// LOGIN TO GENESYS CLOUD
 $(document).ready(function() {
-   const client = platformClient.ApiClient.instance;
-   client.loginImplicitGrant('60feb42b-6ef0-4761-ad7f-95ac491ee688', window.location.href)
-      .then((data) => {
-         console.log(data);
-         //use that session to interface with the API
-         var users = new platformClient.UsersApi();
-         users.getUsersMe().then(function(userObject) {
-            console.log("got me");
-            console.log(userObject);
-         });
-         // Do authenticated things
-      })
-      .catch((err) => {
-         // Handle failure responseS
-         console.log(err);
-      });
+  // Authenticate with Genesys Cloud
+	client.loginImplicitGrant('60feb42b-6ef0-4761-ad7f-95ac491ee688', window.location.href)
+		.then(() => {
+			console.log('Logged in');
+
+			// Get authenticated user's info
+			return usersApi.getUsersMe();
+		})
+		.then((userMe) => {
+			console.log('userMe: ', userMe);
+			me = userMe;
+
+			// Create notification channel
+			return notificationsApi.postNotificationsChannels();
+		})
+		.then((channel) => {
+			console.log('channel: ', channel);
+			notificationChannel = channel;
+
+			// Set up web socket
+			webSocket = new WebSocket(notificationChannel.connectUri);
+			webSocket.onmessage = handleNotification;
+
+			// Subscribe to authenticated user's conversations
+			conversationsTopic = 'v2.users.' + me.id + '.conversations';
+			const body = [ { id: conversationsTopic } ];
+			return notificationsApi.putNotificationsChannelSubscriptions(notificationChannel.id, body);
+
+		})
+
+		.then((topicSubscriptions) => {
+			console.log('topicSubscriptions: ', topicSubscriptions);
+
+			CONVERSATION_LIST_TEMPLATE = Handlebars.compile($('#entry-template').html());
+
+			// Handle dial button click
+			$('button#dial').click(() => {
+				// Create request body
+				let body = {
+					'phoneNumber':$('input#dialstring').val()
+				};
+
+				// Invoke API
+				conversationsApi.postConversationsCalls(body).then(() => {
+					// Clear dialstring from text box
+					$('input#dialstring').val('');
+				}).catch((err) => console.error(err));
+			});
+
+		})
+		.catch((err) => console.error(err));
 });

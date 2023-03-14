@@ -11,6 +11,30 @@ function wait(ms) {
 }
 
 
+function sendDigits (digitos){
+
+  let apiInstance = new platformClient.ConversationsApi();
+
+  let conversationId = "conv_id"; // String | conversation ID
+  let participantId = "participantid"; // String | participant ID
+  let opts =   {
+       "digits": digitos
+  }
+
+
+  apiInstance.postConversationParticipantDigits(conversationId, participantId, opts)
+    .then(() => {
+      console.log('postConversationParticipantDigits returned successfully.');
+    })
+    .catch((err) => {
+      console.log('There was a failure calling postConversationParticipantDigits');
+      console.error(err);
+    });
+
+}
+
+
+
 function getAnalyticsConversationDetails(conversationId){
   let apiInstance = new platformClient.ConversationsApi();
 
@@ -76,7 +100,7 @@ function ProcessDTMF(){
 
     DialNumber (number);
     wait (s1);
-
+    sendDigits (d1);
 }
 
 

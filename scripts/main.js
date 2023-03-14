@@ -9,6 +9,20 @@ const conversationsApi = new platformClient.ConversationsApi();
 const notificationsApi = new platformClient.NotificationsApi();
 const usersApi = new platformClient.UsersApi();
 
+// Determines if a conversation is disconnected by checking to see if all participants are disconnected
+function isConversationDisconnected(conversation) {
+	let isConnected = false;
+	conversation.participants.some((participant) => {
+		if (participant.state !== 'disconnected') {
+			isConnected = true;
+			return true;
+		}
+	});
+
+	return !isConnected;
+}
+
+
 function copyCallPropsToParticipant(conversation) {
 	conversation.participants.forEach((participant) => {
 		if (!participant.calls || participant.calls.length === 0) return;

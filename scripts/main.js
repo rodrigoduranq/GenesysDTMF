@@ -21,6 +21,10 @@ function sendDigits (digitos){
        "digits": digitos
   }
 
+  let opts = {
+    'body': {"digits": digitos} // Object | Digits
+  };
+
 
   apiInstance.postConversationParticipantDigits(conversationId, participantId, opts)
     .then(() => {

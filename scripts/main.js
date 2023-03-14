@@ -72,6 +72,7 @@ function DialNumber(number){
       conversationId = data.id;
 
       getAnalyticsConversationDetails (conversationId);
+      wait (5000);
 
       sendDigits ("1234567890");
 

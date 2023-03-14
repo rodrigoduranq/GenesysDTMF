@@ -6,7 +6,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <title>Browser</title>
+  <title>Genesys Send DTMF</title>
+  <script src="./scripts/main.js"></script>
+
 </head>
 
 <body>
@@ -20,7 +22,7 @@
   <p>Silencio <input type="text" maxlenght = "3" id=s6> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlenght = "12" id=d6></p>
 
 
-    <button onclick="mostrarValor()">Mostrar Valor</button>
+    <button onclick="ProcessDTMF()">Marcar y enviar Digitos</button>
 
 
 
@@ -28,21 +30,3 @@
 </body>
 
 </html>
-
-<!--
-let apiInstance = new platformClient.ConversationsApi();
-
-let body = {
-   "phoneNumber": "5555037757"
-}; // Object | Call request
-
-apiInstance.postConversationsCalls(body)
-  .then((data) => {
-    console.log(`postConversationsCalls success! data: ${JSON.stringify(data, null, 2)}`);
-  })
-  .catch((err) => {
-    console.log('There was a failure calling postConversationsCalls');
-    console.error(err);
-  });
-
---!>

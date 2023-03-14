@@ -37,7 +37,7 @@ async function DialNumber(number){
   apiInstance.postConversationsCalls(body)
     .then((data) => {
       console.log(`postConversationsCalls success! data: ${JSON.stringify(data, null, 2)}`);
-      wait (2000);
+      wait (10000);
       getAnalyticsConversationDetails (data.id);
     })
     .catch((err) => {

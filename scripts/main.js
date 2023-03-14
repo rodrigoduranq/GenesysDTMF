@@ -163,20 +163,7 @@ $(document).ready(function() {
 		.then((topicSubscriptions) => {
 			console.log('topicSubscriptions: ', topicSubscriptions);
 
-			CONVERSATION_LIST_TEMPLATE = Handlebars.compile($('#entry-template').html());
 
-			// Handle dial button click
-			$('button#dial').click(() => {
-				// Create request body
-				let body = {
-					'phoneNumber':$('input#dialstring').val()
-				};
-
-				// Invoke API
-				conversationsApi.postConversationsCalls(body).then(() => {
-					// Clear dialstring from text box
-					$('input#dialstring').val('');
-				}).catch((err) => console.error(err));
 			});
 
 		})

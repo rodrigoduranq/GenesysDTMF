@@ -1,5 +1,5 @@
-var conv_id;
-var participantid;
+var conversationId;
+var participantId;
 
 const platformClient = require('platformClient');
 
@@ -15,10 +15,6 @@ function wait(ms) {
 function sendDigits (digitos){
 
   let apiInstance = new platformClient.ConversationsApi();
-
-  let conversationId = conv_id; // String | conversation ID
-  let participantId = participantid; // String | participant ID
-
 
   let opts = {
     'body': {"digits": digitos} // Object | Digits
@@ -46,8 +42,9 @@ apiInstance.getAnalyticsConversationDetails(conversationId)
   .then((data) => {
     console.log(`getAnalyticsConversationDetails success! data: ${JSON.stringify(data, null, 2)}`);
 
-    participantid = data.participants[0].participantId
-    console.log ('participant id:' + participantid);
+    participantId = data.participants[0].participantId
+    console.log ('participant id:' + participantId);
+    console.log ('conversationId id:' + conversationId);
 
   })
   .catch((err) => {
@@ -71,10 +68,9 @@ function DialNumber(number){
     .then((data) => {
       console.log(`postConversationsCalls success! data: ${JSON.stringify(data, null, 2)}`);
       wait (10000);
-      conv_id = data.id;
-      console.log ('conversation id:' + conv_id );
+      conversationId = data.id;
 
-      getAnalyticsConversationDetails (conv_id);
+      getAnalyticsConversationDetails (conversationId);
     })
     .catch((err) => {
       console.log('There was a failure calling postConversationsCalls');

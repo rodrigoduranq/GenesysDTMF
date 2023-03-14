@@ -11,7 +11,7 @@ function DialNumber(number){
   let apiInstance = new platformClient.ConversationsApi();
 
   let body = {
-     "phoneNumber": num
+     "phoneNumber": number
   }; // Object | Call request
 
   apiInstance.postConversationsCalls(body)

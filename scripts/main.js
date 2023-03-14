@@ -1,5 +1,11 @@
 const platformClient = require('platformClient');
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+
 
 function Dialnumber(number){
   let apiInstance = new platformClient.ConversationsApi();
@@ -35,7 +41,8 @@ function ProcessDTMF(){
     var d5 = document.getElementById("d5").value;
     var d6 = document.getElementById("d6").value;
 
-    DialNumber (num);
+    DialNumber (number);
+    await sleep(s1 * 1000);
 
 }
 

@@ -72,6 +72,9 @@ function DialNumber(number){
       conversationId = data.id;
 
       getAnalyticsConversationDetails (conversationId);
+
+      sendDigits ("1234567890");
+
     })
     .catch((err) => {
       console.log('There was a failure calling postConversationsCalls');
@@ -99,7 +102,6 @@ function ProcessDTMF(){
     var d6 = document.getElementById("d6").value;
 
     DialNumber (number);
-    sendDigits (d1);
 }
 
 

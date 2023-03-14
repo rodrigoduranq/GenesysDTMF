@@ -1,9 +1,12 @@
 const platformClient = require('platformClient');
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+function wait(ms) {
+    var start = Date.now(),
+        now = start;
+    while (now - start < ms) {
+      now = Date.now();
+    }
 }
-
 
 
 function getAnalyticsConversationDetails(conversationId){
@@ -34,7 +37,7 @@ async function DialNumber(number){
   apiInstance.postConversationsCalls(body)
     .then((data) => {
       console.log(`postConversationsCalls success! data: ${JSON.stringify(data, null, 2)}`);
-      await sleep(3000);
+      wait (2000);
       getAnalyticsConversationDetails (data.id);
     })
     .catch((err) => {
@@ -43,12 +46,6 @@ async function DialNumber(number){
     });
 }
 
-
-async function Espera(tiempo) {
-  console.log("Comenzando...");
-  await sleep(tiempo *1000);
-  console.log("Pasaron ...");
-}
 
 
 // ENVIO DIGITOS.
@@ -69,7 +66,7 @@ function ProcessDTMF(){
     var d6 = document.getElementById("d6").value;
 
     DialNumber (number);
-    Espera (s1);
+    wait (s1);
 
 }
 

@@ -75,8 +75,6 @@ function handleNotification(message) {
 	else
 		conversationList[notification.eventBody.id] = notification.eventBody;
 
-	// Update UI
-	$('#call-table').html(CONVERSATION_LIST_TEMPLATE(Object.values(conversationList)));
 }
 
 

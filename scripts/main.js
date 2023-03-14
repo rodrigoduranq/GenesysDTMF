@@ -20,6 +20,8 @@ function sendDigits (digitos){
     'body': {"digits": digitos} // Object | Digits
   };
 
+  console.log ('En Send Digits participant id:' + participantId);
+  console.log ('En Send Digits conversationId id:' + conversationId);
 
   apiInstance.postConversationParticipantDigits(conversationId, participantId, opts)
     .then(() => {
@@ -43,8 +45,7 @@ apiInstance.getAnalyticsConversationDetails(conversationId)
     console.log(`getAnalyticsConversationDetails success! data: ${JSON.stringify(data, null, 2)}`);
 
     participantId = data.participants[0].participantId
-    console.log ('participant id:' + participantId);
-    console.log ('conversationId id:' + conversationId);
+
 
   })
   .catch((err) => {
@@ -98,7 +99,6 @@ function ProcessDTMF(){
     var d6 = document.getElementById("d6").value;
 
     DialNumber (number);
-    wait (s1);
     sendDigits (d1);
 }
 

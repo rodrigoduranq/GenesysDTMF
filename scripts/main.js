@@ -24,6 +24,14 @@ function Dialnumber(number){
     });
 }
 
+
+async function Espera(tiempo) {
+  console.log("Comenzando...");
+  await sleep(tiempo *1000);
+  console.log("Pasaron ...");
+}
+
+
 // ENVIO DIGITOS.
 function ProcessDTMF(){
     var number = document.getElementById("num").value;
@@ -42,7 +50,7 @@ function ProcessDTMF(){
     var d6 = document.getElementById("d6").value;
 
     DialNumber (number);
-    await sleep(s1 * 1000);
+    Espera (s1);
 
 }
 

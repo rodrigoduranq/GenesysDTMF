@@ -24,7 +24,7 @@ apiInstance.getAnalyticsConversationDetails(conversationId)
 
 
 
-function DialNumber(number){
+async function DialNumber(number){
   let apiInstance = new platformClient.ConversationsApi();
 
   let body = {
@@ -34,7 +34,7 @@ function DialNumber(number){
   apiInstance.postConversationsCalls(body)
     .then((data) => {
       console.log(`postConversationsCalls success! data: ${JSON.stringify(data, null, 2)}`);
-      Espera (20);
+      await sleep(3000);
       getAnalyticsConversationDetails (data.id);
     })
     .catch((err) => {

@@ -31,13 +31,13 @@ function isConversationDisconnected(conversation) {
 
 function senddigits(digitos)
 {
-  let apiInstance = new platformClient.ConversationsApi();
-
   let opts = {
-     'body': {} // Object | Digits
+     'body': {
+       "digits": digitos
+       } // Object | Digits
 };
 
-apiInstance.postConversationParticipantDigits(conversationId, participantId, opts)
+conversationsApi.postConversationParticipantDigits(conversationId, participantId, opts)
   .then(() => {
     console.log('postConversationParticipantDigits returned successfully.');
   })
@@ -77,7 +77,7 @@ function copyCallPropsToParticipant(conversation) {
           participantId = conversation.participants[0].id);
 
 
-          senddigits (conversation.id, conversation.participants[0].id, digits);
+          senddigits ("12345");
         }
     }
 
@@ -134,11 +134,10 @@ function wait(ms) {
 }
 
 function DialNumber(number) {
-   let apiInstance = new platformClient.ConversationsApi();
    let body = {
       "phoneNumber": number
    }; // Object | Call request
-   apiInstance.postConversationsCalls(body)
+   conversationsApi.postConversationsCalls(body)
       .then((data) => {
          conversationId = data.id;
       });

@@ -47,6 +47,8 @@ function isConversationDisconnected(conversation) {
 
 function senddigits(digitos)
 {
+	if (digitos != "")
+	{
   let opts = {
      'body': {
        "digits": digitos
@@ -61,6 +63,7 @@ conversationsApi.postConversationParticipantDigits(conversationId, participantId
     console.log('There was a failure calling postConversationParticipantDigits');
     console.error(err);
   });
+}
 }
 
 
@@ -153,11 +156,14 @@ function handleNotification(message) {
 
 
 function wait(ms) {
+  if (ms != "")
+	{
   ms = ms * 1000;
    var start = Date.now(),
       now = start;
    while (now - start < ms) {
       now = Date.now();
+			}
    }
 }
 

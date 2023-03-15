@@ -25,13 +25,11 @@
   }
 </style>
 
-<p class="margen-izquierdo">Este es un párrafo con un margen izquierdo de 50 píxeles.</p>
-
 
 <body>
 
 
-<h1> Marcador de Telefono con DTMFs </h1>
+<h1 margin-left: 50px;> Marcador de Telefono con DTMFs </h1>
 
   <p class="cl">Numero Telefonico <input type="text" maxlength="12" size="12" id=num>
   <p class="cl">Silencio <input type="text" maxlength="3" size="3" id=s1> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlength="12" size="12" id=d1></p>
@@ -42,8 +40,9 @@
   <p class="cl">Silencio <input type="text" maxlength="3" size="3" id=s6> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlength="12" size="12" id=d6></p>
 
 
+  <p class="cl">
     <button onclick="ProcessDTMF()">Marcar y enviar Digitos</button>
-
+</p>
 
 </body>
 

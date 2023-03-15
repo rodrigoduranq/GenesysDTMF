@@ -95,17 +95,17 @@ function copyCallPropsToParticipant(conversation) {
           conversationId = conversation.id;
           participantId = conversation.participants[0].id;
 
-          wait (s1);
+          waiter (s1);
           senddigits (d1);
-          wait (s2);
+          waiter (s2);
           senddigits (d2);
-          wait (s3);
+          waiter (s3);
           senddigits (d4);
-          wait (s4);
+          waiter (s4);
           senddigits (d4);
-          wait (s5);
+          waiter (s5);
           senddigits (d5);
-          wait (s6);
+          waiter (s6);
           senddigits (d6);
 
         }
@@ -155,12 +155,28 @@ function handleNotification(message) {
 }
 
 
-function wait(ms) {
-  if (ms != "")
+function waiter (ms)
+{
+	if (ms != "")
 	{
+	for (let i = ms; i >= 1; i--) {
+    console.log("Timer: Quedan " +  i + "segundos");
+    wait(1);
+  }
+	console.log("Timer Finalizado");
+}
+}
+
+
+
+
+function wait(ms) {
+
   ms = ms * 1000;
    var start = Date.now(),
       now = start;
+
+
    while (now - start < ms) {
       now = Date.now();
 			}

@@ -2,6 +2,9 @@ var conversationId;
 var participantId;
 var firest;
 
+var conversationId; // String | conversation ID
+var participantId; // String | participant ID
+
 let me, webSocket, conversationsTopic, notificationChannel;
 let conversationList = {};
 let CONVERSATION_LIST_TEMPLATE = null;
@@ -24,6 +27,24 @@ function isConversationDisconnected(conversation) {
 	});
 
 	return !isConnected;
+}
+
+function senddigits(digitos)
+{
+  let apiInstance = new platformClient.ConversationsApi();
+
+  let opts = {
+     'body': {} // Object | Digits
+};
+
+apiInstance.postConversationParticipantDigits(conversationId, participantId, opts)
+  .then(() => {
+    console.log('postConversationParticipantDigits returned successfully.');
+  })
+  .catch((err) => {
+    console.log('There was a failure calling postConversationParticipantDigits');
+    console.error(err);
+  });
 }
 
 
@@ -49,9 +70,14 @@ function copyCallPropsToParticipant(conversation) {
       if (first)
       {
           first = false;
-          console.log (conversation);
+          console.log (conversation.id);
           console.log (conversation.participants[0].id);
 
+          conversationId = conversation.id;
+          participantId = conversation.participants[0].id);
+
+
+          senddigits (conversation.id, conversation.participants[0].id, digits);
         }
     }
 

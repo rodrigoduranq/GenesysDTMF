@@ -51,7 +51,7 @@ function copyCallPropsToParticipant(conversation) {
           first = false;
           console.log (conversation);
           console.log (conversation.participants[0].id);
-          
+
         }
     }
 
@@ -115,35 +115,6 @@ function DialNumber(number) {
    apiInstance.postConversationsCalls(body)
       .then((data) => {
          conversationId = data.id;
-//         apiInstance.getAnalyticsConversationDetails(conversationId)
-//            .then((data) => {
-//               console.log(`getAnalyticsConversationDetails success! data: ${JSON.stringify(data, null, 2)}`);
-//               participantId = data.participants[0].participantId;
-//               console.log('En DialNumber Conversation ID es' + conversationId);
-//               console.log('En Dial Number Participant id:' + participantId);
-               /////////////////////////////////////////       sendDigits ("1234567890");
-//               let opts = {
-//                  'body': {
-//                     "digits": "123456789"
-//                  } // Object | Digits
-//               };
-//               apiInstance.postConversationParticipantDigits(conversationId, participantId, opts)
-//                  .then(() => {
-//                     console.log('postConversationParticipantDigits returned successfully.');
-//                  })
-//                  .catch((err) => {
-//                     console.log('There was a failure calling postConversationParticipantDigits');
-//                     console.error(err);
-//                  });
-//            })
-//            .catch((err) => {
-//               console.log('There was a failure calling getAnalyticsConversationDetails');
-//               console.error(err);
-            });
-      })
-      .catch((err) => {
-         console.log('There was a failure calling postConversationsCalls');
-         console.error(err);
       });
 }
 // ENVIO DIGITOS.

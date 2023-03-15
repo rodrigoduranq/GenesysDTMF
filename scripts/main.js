@@ -40,6 +40,8 @@ function copyCallPropsToParticipant(conversation) {
 		participant.recording = participant.calls[0].recording;
 		participant.recordingState = participant.calls[0].recordingState;
 		participant.state = participant.calls[0].state;
+    console.log (participant.state);
+
 		if (participant.userId)
 			participant.user = { id: participant.userId, selfUri: `/api/v2/users/${participant.userId}` };
 		if (participant.calls[0].peerId)

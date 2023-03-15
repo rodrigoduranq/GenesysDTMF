@@ -132,6 +132,7 @@ function handleNotification(message) {
 
 
 function wait(ms) {
+  ms = ms * 1000;
    var start = Date.now(),
       now = start;
    while (now - start < ms) {

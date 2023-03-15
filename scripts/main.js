@@ -49,6 +49,9 @@ function senddigits(digitos)
 {
 	if (digitos != "")
 	{
+
+		    console.log("SendDigits Enviando: " +  digitos );
+
   let opts = {
      'body': {
        "digits": digitos

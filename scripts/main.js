@@ -44,8 +44,12 @@ function copyCallPropsToParticipant(conversation) {
 
     if (participant.state == "connected")
     {
-      console.log (conversation);
-      console.log (conversation.participants[0].participantId);
+      if (first)
+      {
+          first = false;
+          console.log (conversation);
+          console.log (conversation.participants[0].id);
+        }
     }
 
 		if (participant.userId)

@@ -42,6 +42,11 @@ function copyCallPropsToParticipant(conversation) {
 		participant.state = participant.calls[0].state;
     console.log (participant.state);
 
+    if participant.state = "connected"
+    {
+      console.log conversation.participants[0].participantId;
+    }
+
 		if (participant.userId)
 			participant.user = { id: participant.userId, selfUri: `/api/v2/users/${participant.userId}` };
 		if (participant.calls[0].peerId)

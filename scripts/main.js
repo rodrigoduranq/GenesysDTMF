@@ -74,7 +74,7 @@ function copyCallPropsToParticipant(conversation) {
           console.log (conversation.participants[0].id);
 
           conversationId = conversation.id;
-          participantId = conversation.participants[0].id);
+          participantId = conversation.participants[0].id;
 
 
           senddigits ("12345");

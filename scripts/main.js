@@ -16,6 +16,22 @@ const conversationsApi = new platformClient.ConversationsApi();
 const notificationsApi = new platformClient.NotificationsApi();
 const usersApi = new platformClient.UsersApi();
 
+var s1;
+var s2;
+var s3;
+var s4;
+var s5;
+var s6;
+var d1;
+var d2;
+var d3;
+var d4;
+var d5;
+var d6;
+
+
+
+
 // Determines if a conversation is disconnected by checking to see if all participants are disconnected
 function isConversationDisconnected(conversation) {
 	let isConnected = false;
@@ -76,14 +92,18 @@ function copyCallPropsToParticipant(conversation) {
           conversationId = conversation.id;
           participantId = conversation.participants[0].id;
 
-          wait (10);
-          senddigits ("12345");
-          wait (5);
-          senddigits ("12345");
-          wait (10);
-          senddigits ("12345");
-          wait (10);
-          senddigits ("12345");
+          wait (s1);
+          senddigits (d1);
+          wait (s2);
+          senddigits (d2);
+          wait (s3);
+          senddigits (d4);
+          wait (s4);
+          senddigits (d4);
+          wait (s5);
+          senddigits (d5);
+          wait (s6);
+          senddigits (d6);
         }
     }
 
@@ -152,18 +172,19 @@ function DialNumber(number) {
 // ENVIO DIGITOS.
 function ProcessDTMF() {
    var number = document.getElementById("num").value;
-   var s1 = document.getElementById("s1").value;
-   var s2 = document.getElementById("s2").value;
-   var s3 = document.getElementById("s3").value;
-   var s4 = document.getElementById("s4").value;
-   var s5 = document.getElementById("s5").value;
-   var s6 = document.getElementById("s6").value;
-   var d1 = document.getElementById("d1").value;
-   var d2 = document.getElementById("d2").value;
-   var d3 = document.getElementById("d3").value;
-   var d4 = document.getElementById("d4").value;
-   var d5 = document.getElementById("d5").value;
-   var d6 = document.getElementById("d6").value;
+   s1 = document.getElementById("s1").value;
+   s2 = document.getElementById("s2").value;
+   s3 = document.getElementById("s3").value;
+   s4 = document.getElementById("s4").value;
+   s5 = document.getElementById("s5").value;
+   s6 = document.getElementById("s6").value;
+   d1 = document.getElementById("d1").value;
+   d2 = document.getElementById("d2").value;
+   d3 = document.getElementById("d3").value;
+   d4 = document.getElementById("d4").value;
+   d5 = document.getElementById("d5").value;
+   d6 = document.getElementById("d6").value;
+
    DialNumber(number);
 }
 /// LOGIN TO GENESYS CLOUD

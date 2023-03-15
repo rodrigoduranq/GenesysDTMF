@@ -76,7 +76,13 @@ function copyCallPropsToParticipant(conversation) {
           conversationId = conversation.id;
           participantId = conversation.participants[0].id;
 
-
+          wait (10);
+          senddigits ("12345");
+          wait (5);
+          senddigits ("12345");
+          wait (10);
+          senddigits ("12345");
+          wait (10);
           senddigits ("12345");
         }
     }

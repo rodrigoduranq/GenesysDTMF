@@ -18,16 +18,28 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 </head>
 
+<style>
+  .cl {
+    margin-left: 50px;
+    font-size: 24px;
+  }
+</style>
+
+<p class="margen-izquierdo">Este es un párrafo con un margen izquierdo de 50 píxeles.</p>
+
+
 <body>
 
 
-  <p>Numero Telefonico <input type="text" maxlength="12" size="12" id=num>
-  <p>Silencio <input type="text" maxlength="3" size="3" id=s1> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlength="12" size="12" id=d1></p>
-  <p>Silencio <input type="text" maxlength="3" size="3" id=s2> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlength="12" size="12" id=d2></p>
-  <p>Silencio <input type="text" maxlength="3" size="3" id=s3> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlength="12" size="12" id=d3></p>
-  <p>Silencio <input type="text" maxlength="3" size="3" id=s4> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlength="12" size="12" id=d4></p>
-  <p>Silencio <input type="text" maxlength="3" size="3" id=s5> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlength="12" size="12" id=d5></p>
-  <p>Silencio <input type="text" maxlength="3" size="3" id=s6> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlength="12" size="12" id=d6></p>
+<h1> Marcador de Telefono con DTMFs </h1>
+
+  <p class="cl">Numero Telefonico <input type="text" maxlength="12" size="12" id=num>
+  <p class="cl">Silencio <input type="text" maxlength="3" size="3" id=s1> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlength="12" size="12" id=d1></p>
+  <p class="cl">Silencio <input type="text" maxlength="3" size="3" id=s2> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlength="12" size="12" id=d2></p>
+  <p class="cl">Silencio <input type="text" maxlength="3" size="3" id=s3> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlength="12" size="12" id=d3></p>
+  <p class="cl">Silencio <input type="text" maxlength="3" size="3" id=s4> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlength="12" size="12" id=d4></p>
+  <p class="cl">Silencio <input type="text" maxlength="3" size="3" id=s5> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlength="12" size="12" id=d5></p>
+  <p class="cl">Silencio <input type="text" maxlength="3" size="3" id=s6> segs. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;DTMF <input type="text" maxlength="12" size="12" id=d6></p>
 
 
     <button onclick="ProcessDTMF()">Marcar y enviar Digitos</button>

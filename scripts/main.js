@@ -183,7 +183,6 @@ function wait(ms) {
    while (now - start < ms) {
       now = Date.now();
 			}
-   }
 }
 
 function DialNumber(number) {

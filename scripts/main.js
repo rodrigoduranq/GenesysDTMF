@@ -103,7 +103,7 @@ function copyCallPropsToParticipant(conversation) {
           waiter (s2);
           senddigits (d2);
           waiter (s3);
-          senddigits (d4);
+          senddigits (d3);
           waiter (s4);
           senddigits (d4);
           waiter (s5);

@@ -215,9 +215,9 @@ async function ProcessDTMF() {
 }
 
 
-function Colgar() {
+async function Colgar() {
 
-	let conversationId = "conversationId"; // String | conversation ID
+	let conversationId = conversationId; // String | conversation ID
 	conversationsApi.postConversationDisconnect(conversationId)
 	  .then((data) => {
 	    console.log(`postConversationDisconnect success! data: ${JSON.stringify(data, null, 2)}`);

@@ -196,7 +196,7 @@ function DialNumber(number) {
       });
 }
 // ENVIO DIGITOS.
-function ProcessDTMF() {
+async function ProcessDTMF() {
    var number = document.getElementById("num").value;
    s1 = document.getElementById("s1").value;
    s2 = document.getElementById("s2").value;

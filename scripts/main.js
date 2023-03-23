@@ -224,7 +224,6 @@ function Colgar() {
 	  })
 	  .catch((err) => {
 	    console.log('There was a failure calling postConversationDisconnect');
-	    console.error(err);
 	  });
 }
 

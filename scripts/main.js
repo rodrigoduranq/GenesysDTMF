@@ -183,6 +183,7 @@ function wait(ms) {
    while (now - start < ms) {
       now = Date.now();
 			}
+   }
 }
 
 function DialNumber(number) {
@@ -212,6 +213,22 @@ function ProcessDTMF() {
 
    DialNumber(number);
 }
+
+
+function Colgar() {
+
+	let conversationId = "conversationId"; // String | conversation ID
+	conversationsApi.postConversationDisconnect(conversationId)
+	  .then((data) => {
+	    console.log(`postConversationDisconnect success! data: ${JSON.stringify(data, null, 2)}`);
+	  })
+	  .catch((err) => {
+	    console.log('There was a failure calling postConversationDisconnect');
+	    console.error(err);
+	  });
+}
+
+
 /// LOGIN TO GENESYS CLOUD
 $(document).ready(function() {
   // Authenticate with Genesys Cloud

@@ -184,7 +184,7 @@ function wait(ms) {
       now = Date.now();
 			}
    }
-}
+
 
 function DialNumber(number) {
    let body = {
